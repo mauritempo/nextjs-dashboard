@@ -3,14 +3,21 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
- 
-// ...
- 
+import { HomeIcon, UserIcon, Cog6ToothIcon } from '@heroicons/react/24/outline'; // ejemplo
+
+
+const links = [
+  { name: 'Inicio', href: '/', icon: HomeIcon },
+  { name: 'Usuarios', href: '/usuarios', icon: UserIcon },
+  { name: 'Configuración', href: '/configuracion', icon: Cog6ToothIcon },
+];
+
 export default function NavLinks() {
-    const pathname = usePathname();
+  const pathname = usePathname();
+
   return (
     <>
-      {Link.map((link) => {
+      {links.map((link) => {
         const LinkIcon = link.icon;
         return (
           <Link
